@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import time
+import json
 
 class GetCitysToLocal(object):
     def __init__(self):
@@ -30,7 +31,7 @@ class GetCitysToLocal(object):
     @staticmethod
     def create_file(file_path, msg):
         f = open(file_path, "a", encoding='utf-8')
-        f.write(msg)
+        json.dump(json.dumps(msg, ensure_ascii=False),f, ensure_ascii=False)
         f.close
 
     def getSSQ(self):
@@ -71,18 +72,17 @@ class GetCitysToLocal(object):
                         county_name = tr.find_all('td')[1].string
 
                         county = {}
-                        county['province'] = province_name
-                        county['city'] = city_name
-                        county['value'] = county_name
+                        county["province"] = province_name
+                        county["city"] = city_name
+                        county["value"] = county_name
 
                         print(province_name + '-' + city_name + '-' + county_name)
                         areas.append(county)
-                
-            time.sleep(5)
-            # 等待五秒防止无响应
+                time.sleep(.5)
+            # 等待,防止无响应
         # print(str(areas))
 
-        self.create_file('./area.txt',str(areas))
+        self.create_file('./area.json',str(areas))
 
 if __name__ == '__main__':
     GetCitysToLocal()

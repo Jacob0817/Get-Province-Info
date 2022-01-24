@@ -1,4 +1,4 @@
-# !py
+# !/usr/bin/env python
 # -*- encoding: utf-8 -*-
 '''
 @file      : province_city_area_to_txt.py
@@ -7,6 +7,8 @@
 @author    : Jacob Zhou <jacob.zzh@outlook.com>
 @ver       : 1.0
 '''
+
+
 
 import requests
 from bs4 import BeautifulSoup

@@ -1,3 +1,13 @@
+# !py
+# -*- encoding: utf-8 -*-
+'''
+@file      : province_city_area_to_txt.py
+@comments  : 
+@time      : 2022/01/24
+@author    : Jacob Zhou <jacob.zzh@outlook.com>
+@ver       : 1.0
+'''
+
 import requests
 from bs4 import BeautifulSoup
 import time
